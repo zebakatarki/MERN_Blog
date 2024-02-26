@@ -19,7 +19,7 @@ export default function Header() {
           type="text"
           placeholder='search...'
           rightIcon={AiOutlineSearch}
-          className='hidden lg:inline' //appear only in large (hidden means in medium and small size)
+          className='hidden lg:inline' //hidden in all sizes but large screen overrides this and inline on large screen
         />
       </form>
       <Button className='w-12 h-10 lg:hidden' color='gray' pill>  {/* hidden in large */}
@@ -28,13 +28,13 @@ export default function Header() {
 
       {/* in small size after menu and in medium or lager size at te end */}
       <div className='flex gap-2 md:order-2'>
-        {/* small hidden large and medium appear */}
+      {/* hidden in all sizes but small screen overrides this and inline on small screen */}
         <Button className='w-12 h-10 hidden sm:inline' color='gray' pill> 
           <FaMoon></FaMoon>
         </Button>
 
         <Link to='/signin'>
-          <Button gradientDuoTone='purpleToBlue'>
+          <Button gradientDuoTone='purpleToBlue' outline>
             Sign In
           </Button>
         </Link>
