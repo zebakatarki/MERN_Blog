@@ -29,6 +29,17 @@ app.use(express.json());
 app.use('/api/user',userRoutes);
 app.use('/api/auth',authRoute);
 
+app.use((err, req, res, next)=>{
+    console.log("Common Error handling middleware is triggered");
+    const statusCode = err.statusCode || 500;
+    const message = err.message || 'Internal Server Error';
+    res.status(statusCode).json({
+        success : false,
+        statusCode,
+        message
+    });
+});
+
 app.listen(3000,()=>{
     console.log("Server is running on 3000!");
 });

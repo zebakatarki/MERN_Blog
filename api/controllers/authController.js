@@ -1,12 +1,14 @@
 import User from "../models/userModel.js";
 import bcryptjs from "bcryptjs";
+import { errorHandler } from "../utils/error.js";
 
-export const signup = async (req,res) =>{
+export const signup = async (req, res, next) =>{
     console.log(req.body);
     const {username, email, password} = req.body;
 
     if(!username || !email || !password || username === "" || email==="" || password==="" ){
-        return res.status(400).json({message:"All fields are require"});
+        // return res.status(400).json({message:"All fields are require"});
+        next(errorHandler(400, "All fields are required"));
     }
 
     // (password,10); password with salt 10
@@ -23,7 +25,8 @@ export const signup = async (req,res) =>{
         await newUser.save();
         res.json("Signup sucessful");
     }catch(error){
-        res.status(500).json({message: error.message});
+        // res.status(500).json({message: error.message});
+        next(error);
     }
 
 };
