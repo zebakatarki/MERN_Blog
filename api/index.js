@@ -29,8 +29,9 @@ app.use(express.json());
 app.use('/api/user',userRoutes);
 app.use('/api/auth',authRoute);
 
+//Backend like duplicate required errors etc
 app.use((err, req, res, next)=>{
-    console.log("Common Error handling middleware is triggered");
+    console.log("Backend (mongoo) Error handling middleware is triggered which is for both Api tools and from routes of ui side");
     const statusCode = err.statusCode || 500;
     const message = err.message || 'Internal Server Error';
     res.status(statusCode).json({

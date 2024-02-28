@@ -6,9 +6,10 @@ export const signup = async (req, res, next) =>{
     console.log(req.body);
     const {username, email, password} = req.body;
 
+    //if request is from api tool like insomnia
     if(!username || !email || !password || username === "" || email==="" || password==="" ){
         // return res.status(400).json({message:"All fields are require"});
-        next(errorHandler(400, "All fields are required"));
+        next(errorHandler(400, "Api tool All fields are required"));
     }
 
     // (password,10); password with salt 10
