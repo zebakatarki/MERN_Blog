@@ -1,5 +1,5 @@
 import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
-import React from 'react'
+import React from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
 
@@ -58,15 +58,23 @@ export default function Signup() {
           //id duplicate entries are present backend 
           if(data.success === false){
             console.log("Data.Success",data.success)
-            setLoading(false);
+            // setLoading(false);
             return setErrorMessage('react : Use unique username or email'); //error on console
 
           }
+          //Only after successfully stored
+          setSignup({
+          username:"", 
+          email:"",
+          password:"",
+          });
+
+          setLoading(false);
+        
           if(res.ok){
             console.log(res);
             navigate('/signin');
           }
-          // setLoading(false);
         }catch(error){
           //Client side error ex internet problem 
           console.log(error);
@@ -76,9 +84,9 @@ export default function Signup() {
     };
 
   return (
-    <div className='min-h-screen mt-20'>
+    <div className='min-h-screen mt-40'>
 
-      <div className='flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5'>
+      <div className='flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-7'>
 
       <div className='flex-1'>
       <Link to="/" className='font-bold dark:text-white text-4xl'>
@@ -92,7 +100,7 @@ export default function Signup() {
       </div>
 
       <div className='flex-1'>
-        <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
+        <form className='flex flex-col gap-6' onSubmit={handleSubmit}>
 
           {
           errorMessage && (
