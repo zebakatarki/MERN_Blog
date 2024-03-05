@@ -2,6 +2,8 @@ import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
 import React from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice';
 
 export default function SignIn() {
 
@@ -9,8 +11,13 @@ export default function SignIn() {
         email:"",
         password:"",
     });
-    let [errorMessage,setErrorMessage]=useState(null);
-    let [loading,setLoading]=useState(false);
+    // let [errorMessage,setErrorMessage]=useState(null);
+    // let [loading,setLoading]=useState(false);
+    //loading and error from initialState and useSelector() is used to get info from global state coming from user slice name
+    const {loading, error:errorMessage} = useSelector(state => state.user)
+
+    const dispatch = useDispatch();
+
     const navigate = useNavigate();
 
     let signinHandler=(event)=>{
@@ -35,13 +42,17 @@ export default function SignIn() {
         
         if( !signin.email || !signin.password ){
           console.log("Self declared error");
-          return setErrorMessage('React Please Fill Out All Fields'); //not show the error on console
+          // return setErrorMessage('React Please Fill Out All Fields'); //not show the error on console
+          return dispatch(signInFailure('Please fill out all the fields'));
         }
 
         console.log(signin);
         try{
-          setLoading(true);
-          setErrorMessage(null);
+          // setLoading(true);
+          // setErrorMessage(null);
+          dispatch(signInStart());
+
+
           // This line sends an HTTP request to the /api/auth/signup endpoint using the fetch() function and 
           //The response from the server will be stored in the variable res. 
           console.log("fetching api");
@@ -58,19 +69,23 @@ export default function SignIn() {
           if(data.success === false){
             console.log("Data.Success",data.success)
             // setLoading(false);
-            setErrorMessage('react : Invalid Cridentials'); //error on console
+            // setErrorMessage('react : Invalid Cridentials'); //error on console
+            dispatch(signInFailure(data.message));
           }
-          setLoading(false);
+          // setLoading(false);
         
           if(res.ok){
+            dispatch(signInSuccess(data)); //data===action.payload
             console.log(res);
             navigate('/');
           }
+
         }catch(error){
           //Client side error ex internet problem 
           console.log(error);
-          setErrorMessage(error.message);
-          setLoading(false);
+          // setErrorMessage(error.message);
+          // setLoading(false);
+          dispatch(signInFailure(error.message));
         }
     };
 
