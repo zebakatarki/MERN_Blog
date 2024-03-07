@@ -66,14 +66,16 @@ export const signin = async(req,res,next)=>{
 export const google = async (req,res,next) =>{
     const {name, email, googlePhotoUrl} = req.body;
     try{
-        const user = await User.findOne({email});
+        const user = await User.findOne({email}); 
         if(user){
+            console.log("User is present in database");
             const token = jwt.sign({id: user._id},process.env.JWT_SECRET);
             const {password, ...rest} = user._doc; //Hiding password
             res.status(200).cookie('access_token', token,{
                 httpOnly:true,
             }).json(rest);
         } else{
+            console.log("User is not present in database");
             const generatedPassword = Math.random(36).slice(-8) + Math.random(36).slice(-8); //0.2345asdfghjkm
             const hashedPassword = bcryptjs.hashSync(generatedPassword,10);
             const newUser = new User({
@@ -92,7 +94,7 @@ export const google = async (req,res,next) =>{
     }catch(error){
         next(error)
     }
-}
+} 
 
 
 
