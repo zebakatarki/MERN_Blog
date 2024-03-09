@@ -6,7 +6,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import userRoutes from './routes/userRoute.js';
-import authRoute from './routes/authRoute.js'
+import authRoute from './routes/authRoute.js';
+
+import cookieParser from 'cookie-parser';
 
 mongoose.connect
     (process.env.MONGO).then(()=>{
@@ -20,6 +22,8 @@ const app= express();
 
 // we cannot able to send the json info directly from any api tool like Insomnia so it Allows json as the input of the backend
 app.use(express.json());
+
+app.use(cookieParser());
 
 // app.use((req,res,next)=>{
 //     console.log("random");

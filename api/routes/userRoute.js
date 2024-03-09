@@ -1,10 +1,12 @@
 import express from 'express';
-import { test } from '../controllers/userController.js';
+import { test, updateUser } from '../controllers/userController.js';
 import { errorHandler } from '../utils/error.js';
+import { verifytToken } from '../utils/userVerify.js';
 
 const router = express.Router();
 
 router.get('/test', test);
+router.put('/update/:userId',verifytToken, updateUser);
 
 router.get('/tests',(req,res,next)=>{
     // { message: "Router is working tests" } is the JSON object being sent as the response. 
