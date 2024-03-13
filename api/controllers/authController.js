@@ -76,10 +76,14 @@ export const google = async (req,res,next) =>{
             }).json(rest);
         } else{
             console.log("User is not present in database");
-            const generatedPassword = Math.random(36).slice(-8) + Math.random(36).slice(-8); //0.2345asdfghjkm
+            const generatedPassword = 
+            Math.random().toString(36).slice(-8) + 
+            Math.random().toString(36).slice(-8); //0.2345asdfghjkm
+
             const hashedPassword = bcryptjs.hashSync(generatedPassword,10);
             const newUser = new User({
-                username: name.toLowerCase().split(' ').join(' ') + Math.random().toString(9).slice(-4), //Zeba Katarki = zebakatarki987654
+                username: name.toLowerCase().split(' ').join('') + 
+                Math.random().toString(9).slice(-4), //Zeba Katarki = zebakatarki987654
                 email,
                 password: hashedPassword,
                 profilePicture: googlePhotoUrl,
@@ -92,9 +96,9 @@ export const google = async (req,res,next) =>{
             }).json(rest);
         }
     }catch(error){
-        next(error)
+        next(error);
     }
-} 
+}; 
 
 
 

@@ -3,7 +3,8 @@ import React from 'react';
 import {AiFillGoogleCircle} from 'react-icons/ai';
 import {GoogleAuthProvider, signInWithPopup, getAuth} from 'firebase/auth'; //OAuth
 import {app} from '../firebase.js';
-import { useDispatch } from 'react-redux';import { signInSuccess } from '../redux/user/userSlice';
+import { useDispatch } from 'react-redux';
+import { signInSuccess } from '../redux/user/userSlice';
 import { useNavigate } from 'react-router-dom';
 
 
