@@ -1,5 +1,5 @@
 import { Sidebar } from 'flowbite-react';
-import React from 'react';
+import React from 'react'; 
 import {HiUser, HiArrowSmRight} from 'react-icons/hi';
 import { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
@@ -33,7 +33,7 @@ export default function DashSidebar() {
         dispatch(signoutSuccess());
       }
     }catch(error){
-      console.log(error.message);
+      console.log(error.message); 
     }
   }
 

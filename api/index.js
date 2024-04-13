@@ -6,7 +6,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import userRoutes from './routes/userRoute.js';
-import authRoute from './routes/authRoute.js';
+import authRoutes from './routes/authRoute.js';
+
+import postRoutes from './routes/postRoute.js';
 
 import cookieParser from 'cookie-parser';
 
@@ -31,7 +33,8 @@ app.use(cookieParser());
 // });
 
 app.use('/api/user',userRoutes);
-app.use('/api/auth',authRoute);
+app.use('/api/auth',authRoutes);
+app.use('/api/post',postRoutes);
 
 //Backend like duplicate required errors etc
 app.use((err, req, res, next)=>{
