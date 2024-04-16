@@ -6,6 +6,7 @@ import 'react-quill/dist/quill.snow.css';
 import {app} from '../firebase';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function CreatePost() {
   const [file,setFile] = useState(null);
@@ -14,7 +15,8 @@ export default function CreatePost() {
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState(null);
 
-  console.log(formData); 
+  const navigate = useNavigate();
+
   const handleUploadImage = async () =>{
       try{
         if(!file){
@@ -71,6 +73,7 @@ export default function CreatePost() {
     // }
     if(res.ok){
       setPublishError(null);
+      navigate(`/post/${data.slug}`);
     }
     }catch(error){
       setPublishError('Something went wrong');
