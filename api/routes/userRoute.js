@@ -1,5 +1,5 @@
 import express from 'express';
-import { test, updateUser, deleteUser, signout } from '../controllers/userController.js';
+import { test, updateUser, deleteUser, signout,getUsers } from '../controllers/userController.js';
 import { errorHandler } from '../utils/error.js';
 import { verifytToken } from '../utils/userVerify.js';
 
@@ -9,6 +9,7 @@ router.get('/test', test);
 router.put('/update/:userId',verifytToken, updateUser);
 router.delete('/delete/:userId',verifytToken,deleteUser);
 router.post('/signout',signout);
+router.get('/getusers', verifytToken, getUsers);
 
 router.get('/tests',(req,res,next)=>{
     // { message: "Router is working tests" } is the JSON object being sent as the response. 
