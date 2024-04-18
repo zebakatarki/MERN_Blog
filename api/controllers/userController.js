@@ -7,7 +7,7 @@ export const test = (req,res) => {
 };
 
 export const updateUser=async (req,res,next)=>{
-    console.log(req.user); //coming from cookie
+    console.log("User Information Coming From Cookie",req.user); //coming from cookie
     if(req.user.id !== req.params.userId){
         return next(errorHandler(401,'You are not allowed to update this user!'));
     }

@@ -34,6 +34,9 @@ export const getposts = async (req,res,next) => {
             ...(req.query.slug && { category: req.query.slug}),
             ...(req.query.postId && { _id: req.query.postId}),
             ...(req.query.searchTerm && { 
+
+                // $or is Logical OR which we used in mongodb queries This query will find all documents in the 
+                // collection where either field1 is equal to value1 or field2 is equal to value2.
                 $or: [
                     {title: {$regex: req.query.searchTerm, $options: 'i'}},
                     {content: {$regex: req.query.searchTerm, $options: 'i'}},
@@ -53,6 +56,7 @@ export const getposts = async (req,res,next) => {
             );
 
             const lastMonthPosts = await Post.countDocuments({
+                //$gte is a logical operator greater than equal to which we used in mongodb queries
                 createdAt: {$gte: oneMonthAgo},
             });
 
@@ -66,3 +70,15 @@ export const getposts = async (req,res,next) => {
         next(error);
     }
 }
+
+export const deletepost = async (req,res,next) => {
+    if(!req.user.isAdmin || req.user.id !== req.params.userId){
+        return next(errorHandler(403, 'You are not allowed to delete this post'));
+    }
+    try{
+        await Post.findByIdAndDelete(req.params.postId);
+        res.status(200).json('The post has been deleted');
+    } catch(error){
+        next(error);
+    }
+};

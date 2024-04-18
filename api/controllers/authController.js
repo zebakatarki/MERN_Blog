@@ -53,7 +53,7 @@ export const signin = async(req,res,next)=>{
             {id: validUser._id, isAdmin: validUser.isAdmin}, process.env.JWT_SECRET
         ); 
 
-        //Sepreates the password from the rest of information we can see the result without password on iosomnia
+        //Sepreates the password from the rest of information we can see the result without password on insomnia
         const {password: pass, ...rest} = validUser._doc; 
 
         res.status(200).cookie('access_token', token, {
@@ -99,83 +99,6 @@ export const google = async (req,res,next) =>{
         next(error);
     }
 }; 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // JWT Token Generation:
 // The jwt.sign() function generates a JWT token. It takes a payload (in this case, an object containing the user's ID)
