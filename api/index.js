@@ -38,7 +38,7 @@ app.use('/api/post',postRoutes);
 
 //Backend like duplicate required errors etc
 app.use((err, req, res, next)=>{
-    console.log("Backend (mongoo) Error handling middleware is triggered which is for both Api tools and from routes of ui side");
+    console.log("Error handling middleware for both",err.message);
     const statusCode = err.statusCode || 500;
     const message = err.message || 'Internal Server Error';
     res.status(statusCode).json({

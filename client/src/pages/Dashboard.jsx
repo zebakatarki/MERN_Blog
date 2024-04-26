@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import DashSidebar from '../components/DashSidebar';
 import DashProfile from '../components/DashProfile';
 import DashPost from '../components/DashPost';
+import DashUsers from '../components/DashUsers';
 
 export default function Dashboard() {
   //The useLocation hook is used to access the current URL location in a React component. 
@@ -32,6 +33,8 @@ export default function Dashboard() {
     {tab === 'profile' && <DashProfile/>}
     {/* Post */}
     {tab === 'posts' && <DashPost/>}
+    {/* Users */}
+    {tab === 'users' && <DashUsers/>}
   </div>
   );
 }
