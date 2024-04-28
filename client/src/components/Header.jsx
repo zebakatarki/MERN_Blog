@@ -90,8 +90,6 @@ export default function Header() {
         </Link>
         )
       } 
-        
-
         <Navbar.Toggle />
       </div>
 
