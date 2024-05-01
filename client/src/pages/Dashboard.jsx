@@ -5,6 +5,7 @@ import DashProfile from '../components/DashProfile';
 import DashPost from '../components/DashPost';
 import DashUsers from '../components/DashUsers';
 import DashComments from '../components/DashComments';
+import DashboardComponent from '../components/DashboardComponent';
 
 export default function Dashboard() {
   //The useLocation hook is used to access the current URL location in a React component. 
@@ -38,6 +39,8 @@ export default function Dashboard() {
     {tab === 'users' && <DashUsers/>}
     {/* Comments */}
     {tab === 'comments' && <DashComments/>}
+    {/* dashboard Component */}
+    {tab === 'dash' && <DashboardComponent/>}
   </div>
   );
 }
