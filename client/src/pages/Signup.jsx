@@ -37,7 +37,7 @@ export default function Signup() {
         
         if(!signup.username || !signup.email || !signup.password ){
           console.log("Self declared error");
-          return setErrorMessage('React Please Fill Out All Fields'); //not show the error on console
+          return setErrorMessage('Please Fill Out All Fields'); //not show the error on console
         }
 
         console.log(signup);
