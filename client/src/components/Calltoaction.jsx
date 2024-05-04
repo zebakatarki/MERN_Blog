@@ -10,14 +10,14 @@ export default function Calltoaction() {
             Want to learn more about MERN Stack?
         </h2>
         <p className='text-gray-500 my-2'>
-            Checkout these resources with 100 MERN Stack Projects!
+            Checkout these MERN Stack Projects with Source Code!
         </p>
         <Button gradientDuoTone='purpleToPink' className='rounded-tl-xl rounded-bl-none'>
-            <a href="https://www.100jsprojects.com" target='_blank' rel='noopener noreferrer'>100 Javascript Projects</a>
+            <a href="https://www.geeksforgeeks.org/mern-stack-projects/" target='_blank' rel='noopener noreferrer'>MERN Projects</a>
         </Button>
       </div>
-      <div className='p-7 flex-1'>
-        <img src="https://neetable.com/img/hire-pages/mern-stack-developer/hire-mern-stack-developer-banner.png"></img>
+      <div className='p-14 flex-2'>
+        <img src="https://www.dotsquares.com/img/mern-stack-inner.jpg"></img>
       </div>
     </div>
   )

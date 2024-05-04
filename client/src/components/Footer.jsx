@@ -20,14 +20,14 @@ export default function FooterCom(){
                             <Footer.Title title="About" />
                             <Footer.LinkGroup col>
                                 <Footer.Link
-                                href="#"
+                                href="https://github.com/zebakatarki"
                                 target="blank"
                                 rel="noopener noreferrer">
                                     Github
                                 </Footer.Link>
                                 
                                 <Footer.Link
-                                href="#"
+                                href="https://www.linkedin.com/in/zebakatarki98"
                                 target="blank"
                                 rel="noopener noreferrer">
                                     LinkedIn
