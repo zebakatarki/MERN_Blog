@@ -12,7 +12,7 @@ export default function Calltoaction() {
         <p className='text-gray-500 my-2'>
             Checkout these MERN Stack Projects with Source Code!
         </p>
-        <Button gradientDuoTone='purpleToPink' className='rounded-tl-xl rounded-bl-none'>
+        <Button bg-gradient-to-r from-blue-500 to-blue-800  className='rounded-tl-xl rounded-bl-none'>
             <a href="https://www.geeksforgeeks.org/mern-stack-projects/" target='_blank' rel='noopener noreferrer'>MERN Projects</a>
         </Button>
       </div>

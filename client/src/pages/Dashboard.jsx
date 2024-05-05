@@ -26,8 +26,8 @@ export default function Dashboard() {
   },[location.search]); //it only runs this function again when the location.search changes. 
 
   return ( 
-    <div className='min-h-screen flex flex-col md:flex-row'>
-      <div className='md:w-56'>
+    <div className='min-h-screen flex flex-col md:flex-row dark:bg-black'>
+      <div className='md:w-56 dark:bg-black'>
         {/* Slidebar */}
         <DashSidebar/>
     </div>

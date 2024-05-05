@@ -102,7 +102,7 @@ export default function UpdatePosts() {
     }
   };
 
-  return <div className='p-3 max-w-3xl mx-auto min-h-screen'>
+  return <div className='p-3 max-w-3xl mx-auto min-h-screen dark:bg-black'>
       <h1 className='text-center  text-3xl  my-7 font-semibold'>Update a post</h1>
 
       <form className='flex flex-col gap-4' onSubmit={handleSubmit}>

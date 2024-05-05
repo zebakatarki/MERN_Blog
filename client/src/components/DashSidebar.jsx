@@ -40,9 +40,10 @@ export default function DashSidebar() {
   }
 
   return (
-    <Sidebar className='w-full md:w-56'>
-      <Sidebar.Items>
-        <Sidebar.ItemGroup className='flex flex-col gap-1'>
+    // <div className='w-full md:w-56 dark:bg-black bg-white'>
+    <Sidebar className='   dark:bg-black bg-white'>
+      <Sidebar.Items className='dark:bg-black bg-white'>
+        <Sidebar.ItemGroup className='flex flex-col gap-1 bg-white  dark:bg-black'>
 
           {
             currentUser && currentUser.isAdmin && (
@@ -97,6 +98,7 @@ export default function DashSidebar() {
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
+    // </div>
   )
 }
 

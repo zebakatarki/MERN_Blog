@@ -262,7 +262,7 @@ export default function Search() {
                  <option value='nodejs'>NodeJS</option>
             </Select>
           </div>
-          <Button type='submit' outline gradientDuoTone='purpleToPink'>
+          <Button type='submit' outline gradientDuoTone='skyblueToBlue'>
             Apply Filters
           </Button>
         </form>

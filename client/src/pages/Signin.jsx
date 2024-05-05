@@ -97,8 +97,7 @@ export default function SignIn() {
 
       <div className='flex-1'>
       <Link to="/" className='font-bold dark:text-white text-4xl'>
-        <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to bg-pink-500 rounded-lg text-white'>MERN</span>
-        ify
+        <span className='px-2 py-1 bg-gradient-to-r from-blue-500 to-blue-800 rounded-lg text-white'>MERNify</span>
       </Link>
 
       <p className='text-sm mt-5'>
@@ -127,7 +126,7 @@ export default function SignIn() {
             <TextInput type="password" placeholder='**********' id='password' value={signin.password} onChange={signinHandler} name="password"/>
           </div>
 
-          <Button gradientDuoTone='purpleToPink' type='submit' disabled={loading}>
+          <Button bg-gradient-to-r from-blue-500 to-blue-800 type='submit' disabled={loading}>
             {
               loading ? (
                 <>

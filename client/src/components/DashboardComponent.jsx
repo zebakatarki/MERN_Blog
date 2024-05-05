@@ -103,6 +103,8 @@ export default function DashboardComponent() {
     </div> 
 
     <div className='flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-72 w-full rounded-md shadow-md'>
+    {/* <div className='flex flex-col p-3 dark:bg-black gap-4 md:w-72 w-full rounded-md shadow-md'> */}
+    
         <div className='flex justify-between'>
             <div className=''>
                 <h3 className='text-gray-500 text-md uppercase'>Total Posts</h3>
