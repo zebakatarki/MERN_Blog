@@ -60,7 +60,7 @@ export default function CommentSection({postId}) {
   const handleLike = async(commentId) => {
     try{ 
       if(!currentUser){
-        navigate('/sign-in');
+        navigate('/signin');
         return;
       }
       const res = await fetch(`/api/comment/likeComment/${commentId}`,
@@ -95,7 +95,7 @@ export default function CommentSection({postId}) {
     setShowModal(false);
     try{
       if(!currentUser){
-        navigate('/sign-in');
+        navigate('/signin');
         return;
       }
       const res = await fetch(`/api/comment/deleteComment/${commentId}`,{
